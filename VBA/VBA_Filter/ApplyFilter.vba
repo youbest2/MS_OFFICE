@@ -72,3 +72,13 @@ ActiveSheet.Range("A1").AutoFilter field:=colErrorNumber, Criteria1:="*Misra*"
 ActiveSheet.Range("A1").AutoFilter field:=colSeverity, Criteria1:=Array( _
         "high", "low", "mandatory", "medium", "required"), Operator:=xlFilterValues
 End Sub
+
+
+'Criteria1:=Array(_ and Criteria1:="*DiagHandler*" are two different ways to specify filter criteria in VBA.
+
+'Criteria1:=Array(_ is used when the filter criteria include multiple values. The Array function is used to create an array of values, and the filter will include rows where the specified column matches any of the values in the array. For example, in the code you provided, the filter criteria is Criteria1:=Array("high", "low", "mandatory", "medium", "required"), which means that the filter will include rows where the value in the 7th column is either "high", "low", "mandatory", "medium" or "required".
+
+'Criteria1:="*DiagHandler*" is used when the filter criteria is based on a pattern or text. The Criteria1 parameter is used to specify the filter criteria and the filter will include rows where the specified column matches the criteria. The Operator:=xlOr is used to combine the two criteria, so that the filter will include rows where the value in the 4th column contains either "DiagHandler" or "DiagServices".
+
+'In summary, Criteria1:=Array(_ is used to filter based on multiple values and Criteria1:="*DiagHandler*" is used to filter based on a pattern or text.
+
